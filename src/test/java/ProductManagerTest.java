@@ -17,7 +17,7 @@ public class ProductManagerTest {
     Product item3 = new Book(3, "Маленький принц", 400, "Антуан де Сент-Экзюпери");
     Product item4 = new Book(4, "Шантарам 2", 350, "Грегори Дэвид Робертс");
     Product item5 = new Smartphone(5, "s22", 20000, "Samsung");
-    Product item6 = new Smartphone(6, "p50", 30000, "Huawei");
+    Product item6 = new Smartphone(6, "s50", 30000, "Samsung");
     Product item7 = new Smartphone(7, "x5", 40000, "Xiaomi");
     Product item8 = new Smartphone(8, "Watch", 50000, "Apple");
 
@@ -51,7 +51,28 @@ public class ProductManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void searchByAuther() {
 
+        Product[] expected = {item1, item4};
+        Product[] actual = manager.searchBy("Робертс");
 
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void searchByManufacturer() {
 
+        Product[] expected = {item5, item6};
+        Product[] actual = manager.searchBy("Samsung");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void searchBySmartphone() {
+
+        Product[] expected = {item5, item6};
+        Product[] actual = manager.searchBy("s");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }

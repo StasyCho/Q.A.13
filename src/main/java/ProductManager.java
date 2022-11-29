@@ -10,9 +10,9 @@ public class ProductManager {
         repo.save(product);
     }
 
-   // public void removeById(int id) {
-   //     repo.removeById(id);
-   // }
+    // public void removeById(int id) {
+    //     repo.removeById(id);
+    // }
 
     public Product[] searchBy(String text) {
         Product[] result = new Product[0]; // тут будем хранить подошедшие запросу продукты
@@ -30,14 +30,22 @@ public class ProductManager {
         return result;
     }
 
-    // метод определения соответствия товара product запросу search
-    public boolean matches(Product item, String search) {
-        if (item.getName().contains(search)) {
+    public boolean matches(Product product, String search) {
+        if (product.matches(search)) {
             return true;
         } else {
             return false;
         }
-        // или в одну строку:
-        // return product.getName().contains(search);
     }
+
+    // метод определения соответствия товара product запросу search
+    //public boolean matches(Product item, String search) {
+    //   if (item.getName().contains(search)) {
+    //   return true;
+    // } else {
+    //    return false;
+    // }
+    // или в одну строку:
+    // return product.getName().contains(search);
+    // }
 }

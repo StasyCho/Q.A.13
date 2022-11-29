@@ -1,4 +1,4 @@
-public class Smartphone extends Product{
+public class Smartphone extends Product {
 
     private String manufacturer;
 
@@ -6,8 +6,17 @@ public class Smartphone extends Product{
         super(id, name, price);
         this.manufacturer = manufacturer;
     }
-    //@Override
 
-
-
+    @Override
+    // ваши поля, конструкторы, методы
+    public boolean matches(String search) {
+        if (super.matches(search)) { // вызов метода matches в версии описанной в Product
+            return true;
+        }
+        if (manufacturer.contains(search)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
