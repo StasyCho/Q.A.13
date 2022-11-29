@@ -1,3 +1,5 @@
+import org.example.AlreadyExistsException;
+import org.example.NotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,6 +22,8 @@ public class ProductManagerTest {
     Product item6 = new Smartphone(6, "s50", 30000, "Samsung");
     Product item7 = new Smartphone(7, "x5", 40000, "Xiaomi");
     Product item8 = new Smartphone(8, "Watch", 50000, "Apple");
+
+    Product item9 = new Smartphone(9, "g300", 51000, "Apple");
 
     @BeforeEach
     public void setup() {
@@ -74,5 +78,41 @@ public class ProductManagerTest {
         Product[] actual = manager.searchBy("s");
 
         Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void RemoveById() {
+
+        manager.removeById(5);
+
+        Product[] expected = {item1, item2, item3, item4, item6, item7, item8};
+        Product[] actual = repo.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void SaveById() {
+
+        manager.saveById(9);
+
+        Product[] expected = {item1, item2, item3, item4, item6, item7, item8, item9};
+        Product[] actual = repo.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void notRemoveById() {
+
+        Assertions.assertThrows(NotFoundException.class,
+                () -> manager.removeById(9));
+    }
+
+    @Test
+    public void notSaveById() {
+
+        Assertions.assertThrows(AlreadyExistsException.class,
+                () -> manager.saveById(5));
     }
 }
