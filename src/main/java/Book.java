@@ -5,16 +5,9 @@ public class Book extends Product{
         super(id, name, price);
         this.auther = auther;
     }
-
     //@Override
-
-
     public String getAuther() {
         return auther;
-    }
-
-    public void setAuther(String auther) {
-        this.auther = auther;
     }
 
 

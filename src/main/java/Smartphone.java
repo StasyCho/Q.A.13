@@ -6,15 +6,9 @@ public class Smartphone extends Product{
         super(id, name, price);
         this.manufacturer = manufacturer;
     }
-
     //@Override
-
     public String getManufacturer() {
         return manufacturer;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
     }
 
 
