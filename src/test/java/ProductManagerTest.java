@@ -96,7 +96,7 @@ public class ProductManagerTest {
 
         manager.saveById(9);
 
-        Product[] expected = {item1, item2, item3, item4, item6, item7, item8, item9};
+        Product[] expected = {item1, item2, item3, item4, item5, item6, item7, item8, item9};
         Product[] actual = repo.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
