@@ -1,6 +1,6 @@
 public class ProductRepository {
 
-    private static Product[] products = new Product[0];
+    private Product[] products = new Product[0];
 
     public void save(Product product) {
         Product[] tmp = new Product[products.length + 1];

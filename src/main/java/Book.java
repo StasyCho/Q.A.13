@@ -6,9 +6,7 @@ public class Book extends Product{
         this.auther = auther;
     }
     //@Override
-    public String getAuther() {
-        return auther;
-    }
+
 
 
 }

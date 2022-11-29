@@ -10,9 +10,9 @@ public class ProductManager {
         repo.save(product);
     }
 
-    public void removeById(int id) {
-        repo.removeById(id);
-    }
+   // public void removeById(int id) {
+   //     repo.removeById(id);
+   // }
 
     public Product[] searchBy(String text) {
         Product[] result = new Product[0]; // тут будем хранить подошедшие запросу продукты
