@@ -7,9 +7,9 @@ import static org.mockito.Mockito.*;
 
 public class ProductManagerTest {
 
-    ProductRepository repo = new ProductRepository();
+    // ProductRepository repo = new ProductRepository();
 
-    //  ProductRepository repo = Mockito.mock(ProductRepository.class);
+    ProductRepository repo = Mockito.mock(ProductRepository.class);
     ProductManager manager = new ProductManager(repo);
 
     Product item1 = new Book(1, "Шантарам", 300, "Грегори Дэвид Робертс");
@@ -21,20 +21,23 @@ public class ProductManagerTest {
     Product item7 = new Smartphone(7, "x5", 40000, "Xiaomi");
     Product item8 = new Smartphone(8, "Watch", 50000, "Apple");
 
-    @BeforeEach
-    public void setup() {
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
-        manager.add(item7);
-        manager.add(item8);
-    }
+    // @BeforeEach
+    // public void setup() {
+    //     manager.add(item1);
+    //   manager.add(item2);
+    //   manager.add(item3);
+    //    manager.add(item4);
+    //    manager.add(item5);
+    //   manager.add(item6);
+    //   manager.add(item7);
+    //  manager.add(item8);
+    //  }
 
     @Test
-    public void searchBy() {
+    public void searchBy2() {
+
+        Product[] items = {item1, item2, item3, item4, item5, item6, item7, item8};
+        doReturn(items).when(repo).findAll();
 
         Product[] expected = {item1, item4};
         Product[] actual = manager.searchBy("Шантарам");
@@ -43,15 +46,33 @@ public class ProductManagerTest {
     }
 
     @Test
-    public void add() {
+    public void searchBy1() {
 
-        Product[] expected = {item1, item2, item3, item4, item5, item6, item7, item8};
-        Product[] actual = repo.findAll();
+        Product[] items = {item1, item2, item3, item4, item5, item6, item7, item8};
+        doReturn(items).when(repo).findAll();
+
+        Product[] expected = {item3};
+        Product[] actual = manager.searchBy("Маленький принц");
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void searchBy0() {
 
+        Product[] items = {item1, item2, item3, item4, item5, item6, item7, item8};
+        doReturn(items).when(repo).findAll();
 
+        Product[] expected = {};
+        Product[] actual = manager.searchBy("Крепкий орешек");
 
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+  //  @Test
+   // public void add() {
+       // Product[] expected = {item1, item2, item3, item4, item5, item6, item7, item8};
+      //  Product[] actual = repo.findAll();
+      //  Assertions.assertArrayEquals(expected, actual);
+  //  }
 }
