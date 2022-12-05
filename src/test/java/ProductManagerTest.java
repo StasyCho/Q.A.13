@@ -92,17 +92,6 @@ public class ProductManagerTest {
     }
 
     @Test
-    public void SaveById() {
-
-        manager.saveById(9);
-
-        Product[] expected = {item1, item2, item3, item4, item5, item6, item7, item8, item9};
-        Product[] actual = repo.findAll();
-
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
     public void notRemoveById() {
 
         Assertions.assertThrows(NotFoundException.class,
@@ -113,6 +102,8 @@ public class ProductManagerTest {
     public void notSaveById() {
 
         Assertions.assertThrows(AlreadyExistsException.class,
-                () -> manager.saveById(5));
+                () -> manager.add(item7));
     }
+
+
 }

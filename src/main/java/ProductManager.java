@@ -9,15 +9,11 @@ public class ProductManager {
     }
 
     public void add(Product product) {
-        repo.save(product);
+        repo.save(product, product.getId());
     }
 
     public void removeById(int id) {
         repo.removeById(id);
-    }
-
-    public void saveById(int id) {
-        repo.saveById(id);
     }
 
     public Product[] searchBy(String text) {
