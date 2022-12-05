@@ -6,9 +6,9 @@ public class ProductManager {
         this.repo = repo;
     }
 
-    public void add(Product product) {
-        repo.save(product);
-    }
+   // public void add(Product product) {
+     //   repo.save(product);
+  //  }
 
     // public void removeById(int id) {
     //     repo.removeById(id);
