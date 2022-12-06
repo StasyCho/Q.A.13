@@ -16,14 +16,14 @@ public class ProductRepositoryTest {
         Product item7 = new Smartphone(7, "x5", 40000, "Xiaomi");
         Product item8 = new Smartphone(8, "Watch", 50000, "Apple");
 
-        repo.save(item1);
-        repo.save(item2);
-        repo.save(item3);
-        repo.save(item4);
-        repo.save(item5);
-        repo.save(item6);
-        repo.save(item7);
-        repo.save(item8);
+        repo.save(item1, 1);
+        repo.save(item2, 2);
+        repo.save(item3, 3);
+        repo.save(item4, 4);
+        repo.save(item5, 5);
+        repo.save(item6, 6);
+        repo.save(item7, 7);
+        repo.save(item8, 8);
         repo.removeById(item2.getId());
 
         Product[] expected = {item1, item3, item4, item5, item6, item7, item8};
